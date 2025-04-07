@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "upcloud": {
+      "command": "upcloud-mcp-server",
+      "args": [
+        "stdio"
+      ],
+      "env": {
+        "UPCLOUD_USERNAME": "",
+        "UPCLOUD_PASSWORD": ""
+      }
+    }
+  }
+}
