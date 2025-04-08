@@ -1,9 +1,11 @@
 # Upcloud MCP Server
 
 ## Work in progress!!!
+
 This is a work in progress and not yet ready for any type of use. Please check back later for updates.
 
 ## Overview
+
 The Upcloud MCP Server is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction)
 server that provides seamless integration with Upcloud APIs, enabling advanced
 automation and interaction capabilities for developers and tools.
@@ -42,6 +44,11 @@ On Windows: `AppData\Claude\claude_desktop_config.json`
 ### Account
 
 - **get_account** - Get account of current user
+- **get_account_details** - Get account details by username
+  - `username`: Account username (string, required)
+- **get_account_list** - Get account list
+- **get_database** - Get managed database by uuid
+  - `uuid`: Database UUID (string, required)
 
 ## License
 
