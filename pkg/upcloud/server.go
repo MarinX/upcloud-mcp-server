@@ -28,6 +28,10 @@ func NewServer(client *client.Client, version string, readOnly bool) *server.MCP
 	// database
 	s.AddTool(getDatabase(svc))
 
+	// servers
+	s.AddTool(getServers(svc))
+	s.AddTool(getServerDetails(svc))
+
 	return s
 }
 

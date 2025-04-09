@@ -20,6 +20,7 @@ func getDatabase(svc *service.Service) (tool mcp.Tool, handler server.ToolHandle
 			if err != nil {
 				return mcp.NewToolResultError(err.Error()), nil
 			}
+
 			db, err := svc.GetManagedDatabase(ctx, &upreq.GetManagedDatabaseRequest{UUID: uuid})
 			if err != nil {
 				return nil, fmt.Errorf("failed to get database: %w", err)

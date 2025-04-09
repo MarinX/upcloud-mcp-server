@@ -47,8 +47,17 @@ On Windows: `AppData\Claude\claude_desktop_config.json`
 - **get_account_details** - Get account details by username
   - `username`: Account username (string, required)
 - **get_account_list** - Get account list
+
+### Database
+
 - **get_database** - Get managed database by uuid
   - `uuid`: Database UUID (string, required)
+
+### Server
+
+- **get_servers** - Get servers
+- **get_server_details** - Get server details
+  - `uuid`: Server UUID (string, required)
 
 ## License
 
