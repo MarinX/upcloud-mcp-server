@@ -1,0 +1,28 @@
+version: "2"
+linters:
+  enable:
+    - govet
+    - errcheck
+    - staticcheck
+    - revive
+    - ineffassign
+    - unused
+    - misspell
+    - nakedret
+    - bodyclose
+    - gocritic
+    - makezero
+    - gosec
+
+  settings:
+    revive:
+      rules:
+        - name: package-comments
+          disabled: true
+
+output:
+  formats:
+    text:
+      colors: true
+      print-issued-lines: true
+      print-linter-name: true

@@ -11,10 +11,11 @@ import (
 	"github.com/mark3labs/mcp-go/server"
 )
 
-func getAccount(svc *service.Service) (tool mcp.Tool, handler server.ToolHandlerFunc) {
+// GetAccount retrieves the current user account information.
+func GetAccount(svc *service.Service) (tool mcp.Tool, handler server.ToolHandlerFunc) {
 	return mcp.NewTool("get_account",
 			mcp.WithDescription("Get current user account"),
-		), func(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
+		), func(ctx context.Context, _ mcp.CallToolRequest) (*mcp.CallToolResult, error) {
 			ac, err := svc.GetAccount(ctx)
 			if err != nil {
 				return nil, fmt.Errorf("failed to get account: %w", err)
@@ -28,7 +29,8 @@ func getAccount(svc *service.Service) (tool mcp.Tool, handler server.ToolHandler
 		}
 }
 
-func getAccountDetails(svc *service.Service) (tool mcp.Tool, handler server.ToolHandlerFunc) {
+// GetAccountDetails retrieves the current user account details for a specific username.
+func GetAccountDetails(svc *service.Service) (tool mcp.Tool, handler server.ToolHandlerFunc) {
 	return mcp.NewTool("get_account_details",
 			mcp.WithDescription("Get current user account details"),
 			mcp.WithString("username", mcp.Required(), mcp.Description("Username")),
@@ -49,10 +51,11 @@ func getAccountDetails(svc *service.Service) (tool mcp.Tool, handler server.Tool
 		}
 }
 
-func getAccountList(svc *service.Service) (tool mcp.Tool, handler server.ToolHandlerFunc) {
+// GetAccountList retrieves the current user account list.
+func GetAccountList(svc *service.Service) (tool mcp.Tool, handler server.ToolHandlerFunc) {
 	return mcp.NewTool("get_account_list",
 			mcp.WithDescription("Get current user account list"),
-		), func(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
+		), func(ctx context.Context, _ mcp.CallToolRequest) (*mcp.CallToolResult, error) {
 			list, err := svc.GetAccountList(ctx)
 			if err != nil {
 				return nil, fmt.Errorf("failed to get account list: %w", err)

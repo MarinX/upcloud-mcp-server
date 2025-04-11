@@ -11,7 +11,8 @@ import (
 	"github.com/mark3labs/mcp-go/server"
 )
 
-func getDatabase(svc *service.Service) (tool mcp.Tool, handler server.ToolHandlerFunc) {
+// GetDatabase retrieves the managed database information.
+func GetDatabase(svc *service.Service) (tool mcp.Tool, handler server.ToolHandlerFunc) {
 	return mcp.NewTool("get_managed_database",
 			mcp.WithDescription("Get managed database"),
 			mcp.WithString("uuid", mcp.Required(), mcp.Description("The UUID of the database")),

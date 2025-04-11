@@ -12,7 +12,8 @@ import (
 	"github.com/mark3labs/mcp-go/server"
 )
 
-func getServers(svc *service.Service) (tool mcp.Tool, handler server.ToolHandlerFunc) {
+// GetServers retrieves the list of servers.
+func GetServers(svc *service.Service) (tool mcp.Tool, handler server.ToolHandlerFunc) {
 	return mcp.NewTool("get_servers",
 			mcp.WithDescription("Get servers"),
 		), func(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
@@ -28,7 +29,8 @@ func getServers(svc *service.Service) (tool mcp.Tool, handler server.ToolHandler
 		}
 }
 
-func getServerDetails(svc *service.Service) (tool mcp.Tool, handler server.ToolHandlerFunc) {
+// GetServerDetails retrieves the details of a specific server by its UUID.
+func GetServerDetails(svc *service.Service) (tool mcp.Tool, handler server.ToolHandlerFunc) {
 	return mcp.NewTool("get_server_details",
 			mcp.WithDescription("Get server details"),
 			mcp.WithString("uuid", mcp.Required(), mcp.Description("The UUID of the server")),

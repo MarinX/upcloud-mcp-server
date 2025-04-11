@@ -21,16 +21,20 @@ func NewServer(client *client.Client, version string, readOnly bool) *server.MCP
 	svc := service.New(client)
 
 	// account
-	s.AddTool(getAccount(svc))
-	s.AddTool(getAccountDetails(svc))
-	s.AddTool(getAccountList(svc))
+	s.AddTool(GetAccount(svc))
+	s.AddTool(GetAccountDetails(svc))
+	s.AddTool(GetAccountList(svc))
 
 	// database
-	s.AddTool(getDatabase(svc))
+	s.AddTool(GetDatabase(svc))
 
 	// servers
-	s.AddTool(getServers(svc))
-	s.AddTool(getServerDetails(svc))
+	s.AddTool(GetServers(svc))
+	s.AddTool(GetServerDetails(svc))
+
+	// firewall
+	s.AddTool(GetFirewallRules(svc))
+	s.AddTool(GetFirewallRuleDetails(svc))
 
 	return s
 }
@@ -53,4 +57,12 @@ func requiredParam[T comparable](r mcp.CallToolRequest, p string) (T, error) {
 	}
 
 	return r.Params.Arguments[p].(T), nil
+}
+
+func RequiredInt(r mcp.CallToolRequest, p string) (int, error) {
+	v, err := requiredParam[float64](r, p)
+	if err != nil {
+		return 0, err
+	}
+	return int(v), nil
 }
