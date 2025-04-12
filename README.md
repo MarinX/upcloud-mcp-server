@@ -59,6 +59,13 @@ On Windows: `AppData\Claude\claude_desktop_config.json`
 - **get_server_details** - Get server details
   - `uuid`: Server UUID (string, required)
 
+### Kubernetes
+
+- **get_kubernetes_clusters** - Get kubernetes clusters
+- **get_kubernetes_cluster** - Get kubernetes cluster
+  - `uuid`: Cluster UUID (string, required)
+- **get_kubernetes_plans** - Get kubernetes plans
+
 ## License
 
 This project is licensed under the terms of the MIT open source license. Please refer to [MIT](./LICENSE) for the full terms.
