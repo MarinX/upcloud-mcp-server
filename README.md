@@ -18,24 +18,47 @@ The idea comes from [Github MCP server](https://github.com/github/github-mcp-ser
 
 ## Prerequisites
 
-//TODO
+1. To run the server in a container, you will need to have [Docker](https://www.docker.com/) installed.
+2. Once Docker is installed, you will also need to ensure Docker is running.
+3. Lastly you will need to populate UPCLOUD_USERNAME and UPCLOUD_PASSWORD variables.
 
 ## Installation
+
+### Local usage
 
 ```sh
 go build cmd/upcloud-mcp-server
 ```
 
-and move the binary to your `bin` location
+and move the binary to your `bin` location and move the `claude_desktop_config.json` to Claude configuration directory. Don't forget to populate ENV variables!
+
+On Mac: ~/Library/Application\ Support/Claude/claude_desktop_config.json
+
+On Windows: AppData\Claude\claude_desktop_config.json
 
 ### Usage with Claude Desktop
 
-There is a `cloud_desktop_config.json` sample file.
-You will need to populate `UPCLOUD_USERNAME` and `UPCLOUD_PASSWORD` env variables.
-Move this file to Claude configuration directory.
-On Mac: `~/Library/Application\ Support/Claude/claude_desktop_config.json`
-On Windows: `AppData\Claude\claude_desktop_config.json`
-
+{
+"mcpServers": {
+"github": {
+"command": "docker",
+"args": [
+"run",
+"-i",
+"--rm",
+"-e",
+"UPCLOUD_USERNAME",
+"-e",
+"UPCLOUD_PASSWORD",
+"ghcr.io/marinx/upcloud-mcp-server"
+],
+"env": {
+"UPCLOUD_USERNAME": "<YOUR_USERNAME>",
+"UPCLOUD_PASSWORD": "<YOUR_PASSWORD>"
+}
+}
+}
+}
 ![tools](./static/tools.png)
 ![ask](./static/ask.png)
 
