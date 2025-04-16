@@ -38,27 +38,30 @@ On Windows: AppData\Claude\claude_desktop_config.json
 
 ### Usage with Claude Desktop
 
+```json
 {
-"mcpServers": {
-"github": {
-"command": "docker",
-"args": [
-"run",
-"-i",
-"--rm",
-"-e",
-"UPCLOUD_USERNAME",
-"-e",
-"UPCLOUD_PASSWORD",
-"ghcr.io/marinx/upcloud-mcp-server"
-],
-"env": {
-"UPCLOUD_USERNAME": "<YOUR_USERNAME>",
-"UPCLOUD_PASSWORD": "<YOUR_PASSWORD>"
+  "mcpServers": {
+    "github": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "UPCLOUD_USERNAME",
+        "-e",
+        "UPCLOUD_PASSWORD",
+        "ghcr.io/marinx/upcloud-mcp-server"
+      ],
+      "env": {
+        "UPCLOUD_USERNAME": "<YOUR_USERNAME>",
+        "UPCLOUD_PASSWORD": "<YOUR_PASSWORD>"
+      }
+    }
+  }
 }
-}
-}
-}
+```
+
 ![tools](./static/tools.png)
 ![ask](./static/ask.png)
 
